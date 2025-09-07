@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     function initVideoPlayer() {
-        const streamUrl = 'https://balance.footballii.ir/hls2/b1.m3u8';
+        const streamUrl = 'https://cdn.live.easybroadcast.io/ts_corp/73_arryadia-tnt_zcmwjdc/playlist_dvr.m3u8';
         
         if (Hls.isSupported()) {
             hls = new Hls({
