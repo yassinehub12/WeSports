@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>WeSports - Premium Live Streaming</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-play"></i>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-main">WESPORTS</div>
+                    <div class="logo-subtitle">PREMIUM STREAMING</div>
+                </div>
+            </div>
+            
+            <div class="live-indicator">
+                <span class="live-dot"></span>
+                LIVE NOW
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="content-column">
+                <section class="video-section">
+                    <div class="video-container" id="videoContainer">
+                        <div class="video-wrapper">
+                            <video id="videoElement" playsinline></video>
+                            
+                            <div class="video-overlay" id="videoOverlay">
+                                <div class="big-play-btn" id="bigPlayBtn">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="video-controls" id="videoControls">
+                                <button class="control-btn" id="playPauseBtn">
+                                    <i class="fas fa-play"></i>
+                                </button>
+                                
+                                <div class="progress-container">
+                                    <div class="progress-bar" id="progressBar">
+                                        <div class="progress" id="progress"></div>
+                                    </div>
+                                    <div class="time-display" id="timeDisplay">00:00</div>
+                                </div>
+                                
+                                <button class="live-btn" id="liveBtn">
+                                    <span class="live-dot"></span>
+                                    LIVE
+                                </button>
+                                
+                                <button class="control-btn" id="fullscreenBtn">
+                                    <i class="fas fa-expand"></i>
+                                </button>
+                            </div>
+                            
+                            <div class="loading-spinner" id="loadingSpinner">
+                                <div class="spinner"></div>
+                                <div class="loading-text">Loading stream...</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="stream-info">
+                        <h2 class="stream-title">Live Football Match</h2>
+                        <div class="stream-stats">
+                            <span class="quality"><i class="fas fa-signal"></i> HD Quality</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="ad-space">
+                    <div class="ad-content">
+                        <script type="text/javascript">
+                            atOptions = {
+                                'key' : 'fddb5e185c2e6b1b0264a29432a5ce2a',
+                                'format' : 'iframe',
+                                'height' : 50,
+                                'width' : 320,
+                                'params' : {}
+                            };
+                        </script>
+                        <script type="text/javascript" src="//www.highperformanceformat.com/fddb5e185c2e6b1b0264a29432a5ce2a/invoke.js"></script>
+                    </div>
+                </section>
+            </div>
+            
+            <div class="sidebar">
+                <section class="help-section">
+                    <h3 class="help-title">NEED HELP WITH STREAMING?</h3>
+                    <button class="report-btn" id="reportBtn">
+                        <i class="fab fa-whatsapp"></i>
+                        Contact Support
+                    </button>
+                </section>
+                
+                <section class="matches-section">
+                    <h3 class="matches-title">UPCOMING BIG MATCHES</h3>
+                    <div class="matches-container" id="matchesContainer">
+                        <div class="loading-matches">Loading big matches...</div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.0.0/dist/hls.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
