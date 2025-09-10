@@ -718,7 +718,7 @@ body.rtl .match-teams {
 }
 
 .flag.usa::after {
-    content: "â˜…";
+    content: "★";
     position: absolute;
     top: 2px;
     left: 2px;
@@ -738,7 +738,7 @@ body.rtl .match-teams {
 }
 
 .flag.morocco::after {
-    content: "âœ»";
+    content: "✻";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1074,50 +1074,225 @@ body.rtl .match-teams {
     max-height: 100vh;
     object-fit: contain;
 }
+/* Auth Modal Styles */
+.auth-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 14, 23, 0.95);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
 
 .auth-container {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
+    background: var(--card-bg);
+    border-radius: 16px;
+    border: 1px solid var(--card-border);
+    width: 100%;
+    max-width: 450px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
-.auth-box {
-  background: var(--card-bg);
-  padding: 30px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
-  width: 300px;
+
+.auth-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: rgba(10, 14, 23, 0.8);
+    border-bottom: 1px solid var(--card-border);
 }
-.auth-box h2 {
-  margin-bottom: 20px;
-  color: var(--text-primary);
+
+.auth-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
-.auth-box input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  border-radius: 8px;
-  border: 1px solid var(--card-border);
-  background: rgba(255,255,255,0.1);
-  color: white;
+
+.auth-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.2s ease;
 }
-.auth-box button {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 8px;
-  background: var(--accent-gradient);
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
+
+.auth-close:hover {
+    color: var(--text-primary);
 }
-#authMessage {
-  margin-top: 10px;
-  color: #ff3e7c;
+
+.auth-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.auth-tab {
+    flex: 1;
+    padding: 15px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.auth-tab.active {
+    color: var(--accent);
+}
+
+.auth-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-gradient);
+}
+
+.auth-content {
+    padding: 20px;
+}
+
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px rgba(255, 62, 124, 0.2);
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 14px;
+    background: var(--accent-gradient);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.auth-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 62, 124, 0.4);
+}
+
+.auth-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.auth-links a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+.auth-footer {
+    padding: 15px 20px;
+    text-align: center;
+    border-top: 1px solid var(--card-border);
+}
+
+.auth-footer p {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.auth-error {
+    background: rgba(255, 62, 124, 0.1);
+    border: 1px solid rgba(255, 62, 124, 0.3);
+    color: var(--text-primary);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    display: none;
+}
+
+.auth-success {
+    background: rgba(76, 175, 80, 0.1);
+    border: 1px solid rgba(76, 175, 80, 0.3);
+    color: var(--text-primary);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+    display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* RTL Support for Auth Modal */
+body.rtl .auth-header {
+    direction: rtl;
+}
+
+body.rtl .auth-tabs {
+    direction: rtl;
+}
+
+body.rtl .form-group label,
+body.rtl .auth-footer p {
+    font-family: 'Noto Sans Arabic', 'Rubik', sans-serif;
+}
+
+body.rtl .form-group input,
+body.rtl .auth-btn {
+    font-family: 'Noto Sans Arabic', 'Rubik', sans-serif;
+    text-align: right;
+}
+
+body.rtl .auth-links {
+    direction: rtl;
 }
