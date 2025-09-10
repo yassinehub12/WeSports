@@ -27,6 +27,44 @@ html, body {
     line-height: 1.6;
 }
 
+body.rtl {
+    font-family: 'Noto Sans Arabic', 'Rubik', sans-serif;
+}
+
+body.rtl .header,
+body.rtl .main-content,
+body.rtl .video-controls,
+body.rtl .stream-info,
+body.rtl .stream-stats,
+body.rtl .channels-section,
+body.rtl .ad-space,
+body.rtl .help-section,
+body.rtl .matches-section,
+body.rtl .logo,
+body.rtl .language-switcher,
+body.rtl .live-indicator {
+    direction: ltr;
+}
+
+body.rtl .match-date,
+body.rtl .countdown-title,
+body.rtl .countdown-label,
+body.rtl .channel-name,
+body.rtl .channel-country,
+body.rtl .help-title,
+body.rtl .matches-title,
+body.rtl .channels-title,
+body.rtl .stream-title,
+body.rtl [data-translate] {
+    font-family: 'Noto Sans Arabic', 'Rubik', sans-serif;
+}
+
+body.rtl .countdown-value,
+body.rtl .time-display,
+body.rtl .match-teams {
+    font-family: 'Montserrat', 'Orbitron', sans-serif;
+}
+
 .app-container {
     width: 100%;
     min-height: 100vh;
@@ -92,6 +130,41 @@ html, body {
     letter-spacing: 1.2px;
     font-weight: 600;
     text-transform: uppercase;
+}
+
+.language-switcher {
+    display: flex;
+    align-items: center;
+}
+
+.lang-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 12px;
+    border-radius: 20px;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    backdrop-filter: blur(10px);
+}
+
+.lang-btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.lang-flag {
+    width: 20px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    overflow: hidden;
 }
 
 .live-indicator {
@@ -275,6 +348,7 @@ html, body {
     min-width: 55px;
     text-align: center;
     font-variant-numeric: tabular-nums;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .live-btn {
@@ -354,6 +428,84 @@ html, body {
     color: var(--accent);
 }
 
+.channels-section {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 20px;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+}
+
+.channels-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.channels-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.channel-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.channel-item:hover {
+    background: rgba(255, 62, 124, 0.1);
+    border-color: rgba(255, 62, 124, 0.3);
+    transform: translateY(-3px);
+}
+
+.channel-logo {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.channel-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.channel-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 5px;
+    word-break: break-word;
+}
+
+.channel-country {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.loading-channels {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 25px;
+    font-size: 1rem;
+    grid-column: 1 / -1;
+}
+
 .ad-space {
     background: var(--card-bg);
     border-radius: 16px;
@@ -406,6 +558,7 @@ html, body {
     box-shadow: 0 5px 15px rgba(255, 62, 124, 0.4);
     width: 100%;
     justify-content: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .report-btn:hover {
@@ -482,6 +635,7 @@ html, body {
     font-weight: 600;
     font-size: 1rem;
     flex: 1;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .match-date {
@@ -530,6 +684,69 @@ html, body {
     font-size: 1rem;
 }
 
+.flag {
+    display: inline-block;
+    width: 20px;
+    height: 15px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 2px;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+.flag.usa {
+    background: linear-gradient(to bottom, 
+        #b22234 0%, #b22234 15%, 
+        white 15%, white 30%, 
+        #b22234 30%, #b22234 45%, 
+        white 45%, white 60%, 
+        #b22234 60%, #b22234 75%, 
+        white 75%, white 90%, 
+        #3c3b6e 90%, #3c3b6e 100%);
+    position: relative;
+}
+
+.flag.usa::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    height: 54%;
+    background: #3c3b6e;
+}
+
+.flag.usa::after {
+    content: "â˜…";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    color: white;
+    font-size: 6px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.flag.morocco {
+    background: #c1272d;
+    position: relative;
+}
+
+.flag.morocco::after {
+    content: "âœ»";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #000000;
+    font-size: 8px;
+}
+
 @keyframes pulse {
     0% { opacity: 1; }
     50% { opacity: 0.5; }
@@ -561,6 +778,10 @@ html, body {
     
     .ad-space {
         margin-top: 0;
+    }
+    
+    .channels-container {
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     }
 }
 
@@ -597,6 +818,11 @@ html, body {
         padding: 6px 12px;
     }
     
+    .lang-btn {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+    }
+    
     .main-content {
         padding: 15px;
         gap: 15px;
@@ -620,8 +846,13 @@ html, body {
         padding: 15px;
     }
     
-    .help-section, .matches-section, .ad-space {
+    .help-section, .matches-section, .ad-space, .channels-section {
         padding: 18px;
+    }
+    
+    .channels-container {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 12px;
     }
     
     .countdown-value {
@@ -655,6 +886,11 @@ html, body {
     .live-indicator {
         font-size: 0.7rem;
         padding: 5px 10px;
+    }
+    
+    .lang-btn {
+        padding: 5px 8px;
+        font-size: 0.7rem;
     }
     
     .main-content {
@@ -702,17 +938,35 @@ html, body {
         font-size: 1.3rem;
     }
     
-    .help-section, .matches-section, .ad-space {
+    .help-section, .matches-section, .ad-space, .channels-section {
         padding: 15px;
     }
     
-    .help-title, .matches-title {
+    .help-title, .matches-title, .channels-title {
         font-size: 1.1rem;
     }
     
     .report-btn {
         padding: 12px 20px;
         font-size: 0.9rem;
+    }
+    
+    .channels-container {
+        grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+        gap: 10px;
+    }
+    
+    .channel-item {
+        padding: 12px;
+    }
+    
+    .channel-logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .channel-name {
+        font-size: 0.8rem;
     }
     
     .match-item {
@@ -819,4 +1073,51 @@ html, body {
     height: auto;
     max-height: 100vh;
     object-fit: contain;
+}
+
+.auth-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.auth-box {
+  background: var(--card-bg);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  width: 300px;
+}
+.auth-box h2 {
+  margin-bottom: 20px;
+  color: var(--text-primary);
+}
+.auth-box input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  border: 1px solid var(--card-border);
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+.auth-box button {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent-gradient);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+#authMessage {
+  margin-top: 10px;
+  color: #ff3e7c;
 }
