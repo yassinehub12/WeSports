@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="ar">
 <head>
@@ -16,37 +15,31 @@
     <meta name="copyright" content="WeSports">
     <meta name="theme-color" content="#ff3e7c">
     
-    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://we-sports.vercel.app/">
     <meta property="og:title" content="WeSports - بث مباشر مباريات كرة القدم مجاناً">
     <meta property="og:description" content="شاهد مباريات كرة القدم مباشرة على WeSports - بث حي مجاني لمباريات اليوم، جميع البطولات، جودة عالية بدون تقطيع.">
     <meta property="og:image" content="https://we-sports.vercel.app/preview.jpg">
     
-    <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://we-sports.vercel.app/">
     <meta property="twitter:title" content="WeSports - بث مباشر مباريات كرة القدم مجاناً">
     <meta property="twitter:description" content="شاهد مباريات كرة القدم مباشرة على WeSports - بث حي مجاني لمباريات اليوم، جميع البطولات، جودة عالية بدون تقطيع.">
     <meta property="twitter:image" content="https://we-sports.vercel.app/preview.jpg">
     
-    <!-- Canonical URL -->
     <link rel="canonical" href="https://we-sports.vercel.app/">
     
-    <!-- Alternate Languages -->
     <link rel="alternate" hreflang="ar" href="https://we-sports.vercel.app/" />
     <link rel="alternate" hreflang="en" href="https://we-sports.vercel.app/?lang=en" />
     <link rel="alternate" hreflang="fr" href="https://we-sports.vercel.app/?lang=fr" />
     <link rel="alternate" hreflang="es" href="https://we-sports.vercel.app/?lang=es" />
     <link rel="alternate" hreflang="x-default" href="https://we-sports.vercel.app/" />
     
-    <!-- Geo Tags -->
     <meta name="geo.region" content="Middle East, Africa, Europe, Worldwide">
     <meta name="geo.placename" content="Worldwide">
     <meta name="geo.position" content="0;0">
     <meta name="ICBM" content="0, 0">
     
-    <!-- Structured Data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -113,10 +106,24 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Orbitron:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+    </style>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-container">
+    <div id="auth-container" class="auth-container">
+  <div class="auth-box">
+    <h2>تسجيل الدخول</h2>
+    <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+    <input type="password" id="password" placeholder="كلمة المرور" required>
+    <button id="loginBtn">تسجيل الدخول</button>
+    <button id="registerBtn">إنشاء حساب</button>
+    <p id="authMessage"></p>
+  </div>
+</div>
+
+<div class="app-container" id="site-content" style="display:none;">
         <header class="header">
             <div class="logo">
                 <div class="logo-icon">
@@ -128,9 +135,16 @@
                 </div>
             </div>
             
+            <div class="language-switcher">
+                <button id="languageBtn" class="lang-btn">
+                    <span class="lang-flag" id="langFlag">🇺🇸</span>
+                    <span class="lang-text">EN</span>
+                </button>
+            </div>
+            
             <div class="live-indicator">
                 <span class="live-dot"></span>
-                LIVE NOW
+                <span data-translate="live_now">LIVE NOW</span>
             </div>
         </header>
 
@@ -161,7 +175,7 @@
                                 
                                 <button class="live-btn" id="liveBtn">
                                     <span class="live-dot"></span>
-                                    LIVE
+                                    <span data-translate="live">LIVE</span>
                                 </button>
                                 
                                 <button class="control-btn" id="fullscreenBtn">
@@ -171,16 +185,23 @@
                             
                             <div class="loading-spinner" id="loadingSpinner">
                                 <div class="spinner"></div>
-                                <div class="loading-text">Loading stream...</div>
+                                <div class="loading-text" data-translate="loading_stream">Loading stream...</div>
                             </div>
                         </div>
                     </div>
                     
                     <div class="stream-info">
-                        <h2 class="stream-title">Live Football Match</h2>
+                        <h2 class="stream-title" data-translate="live_football_match">Live Football Match</h2>
                         <div class="stream-stats">
-                            <span class="quality"><i class="fas fa-signal"></i> HD Quality</span>
+                            <span class="quality"><i class="fas fa-signal"></i> <span data-translate="hd_quality">HD Quality</span></span>
                         </div>
+                    </div>
+                </section>
+
+                <section class="channels-section">
+                    <h3 class="channels-title" data-translate="sports_channels">SPORTS CHANNELS</h3>
+                    <div class="channels-container" id="channelsContainer">
+                        <div class="loading-channels" data-translate="loading_channels">Loading channels...</div>
                     </div>
                 </section>
 
@@ -202,17 +223,17 @@
             
             <div class="sidebar">
                 <section class="help-section">
-                    <h3 class="help-title">NEED HELP WITH STREAMING?</h3>
+                    <h3 class="help-title" data-translate="need_help">NEED HELP WITH STREAMING?</h3>
                     <button class="report-btn" id="reportBtn">
                         <i class="fab fa-whatsapp"></i>
-                        Contact Support
+                        <span data-translate="contact_support">Contact Support</span>
                     </button>
                 </section>
                 
                 <section class="matches-section">
-                    <h3 class="matches-title">UPCOMING BIG MATCHES</h3>
+                    <h3 class="matches-title" data-translate="upcoming_matches">UPCOMING BIG MATCHES</h3>
                     <div class="matches-container" id="matchesContainer">
-                        <div class="loading-matches">Loading big matches...</div>
+                        <div class="loading-matches" data-translate="loading_matches">Loading big matches...</div>
                     </div>
                 </section>
             </div>
@@ -220,9 +241,8 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/hls.js@1.0.0/dist/hls.min.js"></script>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
     
-    <!-- SEO Content (Hidden) -->
     <div style="display: none;">
         <h1>WeSports - بث مباشر مباريات كرة القدم مجاناً</h1>
         <h2>مشاهدة مباريات اليوم مباشرة</h2>
@@ -238,7 +258,7 @@
         <h3>مشاهدة مباريات الدوري الجزائري</h3>
         <h3>بث مباشر مباريات الدوري التونسي</h3>
         
-        <p>WeSports - أفضل موقع لمشاهدة مباريات كرة القدم مباشرة عبر الإنترنت. نحن نقدم بثًا حيًا مجانيًا عالي الجودة لمباريات اليوم في جميع البطولات العالمية والعربية. شاهد مباريات الدوري الإنجليزي الممتاز، الليغا الإسبانية، السيري آ الإيطالي، البوندسليغا الألماني، الدوري الفرنسي، دوري أبطال أوروبا،以及 جميع البطولات العربية مثل الدوري المصري، الدوري السعودي، الدوري المغربي، الدوري الجزائري، والدوري التونسي.</p>
+        <p>WeSports - أفضل موقع لمشاهدة مباريات كرة القدم مباشرة عبر الإنترنت. نحن نقدم بثًا حيًا مجانيًا عالي الجودة لمباريات اليوم في جميع البطولات العالمية والعربية. شاهد مباريات الدوري الإنجليزي الممتاز، الليغا الإسبانية، السيري آ الإيطالي، البوندسليغا الألماني، الدوري الفرنسي، دوري أبطال أوروبا，以及 جميع البطولات العربية مثل الدوري المصري، الدوري السعودي، الدوري المغربي، الدوري الجزائري، والدوري التونسي.</p>
         
         <p>موقع WeSports يوفر خدمة بث مباشر مجانية لمباريات كرة القدم بدون تقطيع وبجودة عالية HD. يمكنك مشاهدة مباريات اليوم مباشرة من خلال موقعنا بدون الحاجة إلى تسجيل أو اشتراك. نحن نغطي جميع المباريات المهمة في مختلف البطولات الأوروبية والعربية.</p>
         
@@ -250,7 +270,7 @@
         
         <p>Mira partidos de fútbol en vivo gratis en WeSports. Transmisiones en vivo de la Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Champions League y todas las ligas principales de fútbol. Streams de alta calidad, sin registro, funciona en todos los dispositivos.</p>
         
-        <p>كورة مباشر, مباريات مباشرة, بث مباشر مباريات, مباراة مباشرة, مشاهدة مباريات, مباريات اليوم, كورة لايف, يلا شوت, بي ان سبورت, قنوات رياضية, رياضة مباشرة, لايف كورة, ماتش مباشر, مباراة بث مباشر, بث مباشر رياضة, قنوات بث مباشر, بث مباريات, مباريات كورة, مباريات اون لاين, بث مباشر مجاني, مشاهدة مباريات كرة القدم, مباريات كرة قدم, كورة ستар, كورة لايف مباشر, مباريات اليوم مباشر, بث مباشر مباريات اليوم, مباراة اليوم مباشر, مشاهدة المباريات عبر الإنترنت, بث مباشر بدون تقطيع, جودة عالية, HD, live football, soccer stream, watch football online, live sports, free stream, football today, live score, premier league, la liga, serie a, bundesliga, ligue 1, champions league, watch soccer, live soccer, foot en direct, regarder match en direct, football gratuit, direct football, futbol en vivo, ver partidos en vivo, fútbol gratis, fútbol en directo</p>
+        <p>كورة مباشر, مباريات مباشرة, بث مباشر مباريات, مباراة مباشرة, مشاهدة مباريات, مباريات اليوم, كورة لايف, يلا شوت, بي ان سبورت, قنوات رياضية, رياضة مباشرة, لايف كورة, ماتش مباشر, مباراة بث مباشر, بث مباشر رياضة, قنوات بث مباشر, بث مباريات, مباريات كورة, مباريات اون لاين, بث مباشر مجاني, مشاهدة مباريات كرة القدم, مباريات كرة قدم, كورة ستار, كورة لايف مباشر, مباريات اليوم مباشر, بث مباشر مباريات اليوم, مباراة اليوم مباشر, مشاهدة المباريات عبر الإنترنت, بث مباشر بدون تقطيع, جودة عالية, HD, live football, soccer stream, watch football online, live sports, free stream, football today, live score, premier league, la liga, serie a, bundesliga, ligue 1, champions league, watch soccer, live soccer, foot en direct, regarder match en direct, football gratuit, direct football, futbol en vivo, ver partidos en vivo, fútbol gratis, fútbol en directo</p>
     </div>
 </body>
 </html>
