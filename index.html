@@ -34,9 +34,7 @@
     <link rel="alternate" hreflang="fr" href="https://we-sports.vercel.app/?lang=fr" />
     <link rel="alternate" hreflang="es" href="https://we-sports.vercel.app/?lang=es" />
     <link rel="alternate" hreflang="x-default" href="https://we-sports.vercel.app/" />
-    <!-- إضافة قبل إغلاق head -->
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+    
     <meta name="geo.region" content="Middle East, Africa, Europe, Worldwide">
     <meta name="geo.placename" content="Worldwide">
     <meta name="geo.position" content="0;0">
@@ -114,85 +112,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Login/Signup Modal -->
-<div id="authModal" class="auth-modal">
-    <div class="auth-container">
-        <div class="auth-header">
-            <div class="auth-logo">
-                <div class="logo-icon">
-                    <i class="fas fa-play"></i>
-                </div>
-                <div class="logo-text">
-                    <div class="logo-main">WESPORTS</div>
-                    <div class="logo-subtitle">PREMIUM STREAMING</div>
-                </div>
-            </div>
-            <button class="auth-close" id="authClose">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-
-        <div class="auth-tabs">
-            <button class="auth-tab active" data-tab="login" data-translate="login">Login</button>
-            <button class="auth-tab" data-tab="signup" data-translate="signup">Sign Up</button>
-        </div>
-
-        <div class="auth-content">
-            <!-- Login Form -->
-            <form id="loginForm" class="auth-form active">
-                <div class="form-group">
-                    <label for="loginEmail" data-translate="email">Email</label>
-                    <input type="email" id="loginEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="loginPassword" data-translate="password">Password</label>
-                    <input type="password" id="loginPassword" required>
-                </div>
-                <button type="submit" class="auth-btn" data-translate="login">Login</button>
-                <div class="auth-links">
-                    <a href="#" id="forgotPassword" data-translate="forgot_password">Forgot Password?</a>
-                </div>
-            </form>
-
-            <!-- Signup Form -->
-            <form id="signupForm" class="auth-form">
-                <div class="form-group">
-                    <label for="signupName" data-translate="full_name">Full Name</label>
-                    <input type="text" id="signupName" required>
-                </div>
-                <div class="form-group">
-                    <label for="signupEmail" data-translate="email">Email</label>
-                    <input type="email" id="signupEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="signupPassword" data-translate="password">Password</label>
-                    <input type="password" id="signupPassword" minlength="6" required>
-                </div>
-                <div class="form-group">
-                    <label for="signupConfirmPassword" data-translate="confirm_password">Confirm Password</label>
-                    <input type="password" id="signupConfirmPassword" minlength="6" required>
-                </div>
-                <button type="submit" class="auth-btn" data-translate="signup">Sign Up</button>
-            </form>
-
-            <!-- Forgot Password Form -->
-            <form id="forgotPasswordForm" class="auth-form">
-                <div class="form-group">
-                    <label for="resetEmail" data-translate="email">Email</label>
-                    <input type="email" id="resetEmail" required>
-                </div>
-                <button type="submit" class="auth-btn" data-translate="reset_password">Reset Password</button>
-                <div class="auth-links">
-                    <a href="#" id="backToLogin" data-translate="back_to_login">Back to Login</a>
-                </div>
-            </form>
-        </div>
-
-        <div class="auth-footer">
-            <p data-translate="auth_footer">By continuing, you agree to our Terms of Service and Privacy Policy</p>
-        </div>
-    </div>
-</div>
     <div class="app-container">
         <header class="header">
             <div class="logo">
